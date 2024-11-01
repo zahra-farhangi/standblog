@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2aa78d15-6f40-4ae2-a1f3-b925d9939622" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/standblog.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templates/home/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/standblog/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/standblog/asgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/standblog/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/standblog/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/standblog/wsgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/flex-slider.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/fontawesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/owl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/templatemo-stand-blog.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/fonts/Flaticon.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/fonts/flexslider-icon.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/fonts/flexslider-icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/fonts/flexslider-icon.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/fonts/flexslider-icon.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/fonts/slick.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/fonts/slick.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/fonts/slick.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/fonts/slick.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/about-us.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/banner-item-01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/banner-item-02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/banner-item-03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/banner-item-04.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/banner-item-05.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/banner-item-06.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/blog-post-01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/blog-post-02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/blog-post-03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/blog-thumb-01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/blog-thumb-02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/blog-thumb-03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/blog-thumb-04.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/blog-thumb-05.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/blog-thumb-06.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/comment-author-01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/comment-author-02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/comment-author-03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/cta-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/heading-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/accordions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/isotope.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/owl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/slick.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vendor/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vendor/bootstrap/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vendor/jquery/jquery.min.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2oGIvQ6Dh8Di2y6BHTZDRtGrBeZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "E:/Atusa/django_projects/p3/standblog/home/templates/home",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Atusa\django_projects\p3\standblog\home\templates\home" />
+      <recent name="E:\Atusa\django_projects\p3\standblog\static" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="standblog" type="Python.DjangoServer" factoryName="Django server">
+      <module name="standblog" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="localhost" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23339.19" />
+        <option value="bundled-python-sdk-0029f7779945-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23339.19" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2aa78d15-6f40-4ae2-a1f3-b925d9939622" name="Changes" comment="" />
+      <created>1730489716093</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730489716093</updated>
+      <workItem from="1730489751284" duration="1565000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
