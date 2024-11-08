@@ -72,14 +72,22 @@
                     </li>
                     {% if request.user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'logout_view' %}">log out</a>
+                            <a class="nav-link" href="{% url 'account:logout' %}">log out</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">{{ request.user.first_name }} {{ request.user.last_name }}</a>
+                            {% if request.user.first_name %}
+                                <a class="nav-link" href="">{{ request.user.first_name }} {{ request.user.last_name }}</a>
+                            {% else %}
+                                <a class="nav-link" href="">{{ request.user.username }}</a>
+                            {% endif %}
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login_view' %}">login</a>
+                            <a class="nav-link" href="{% url 'account:login' %}">login</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account:register' %}">register</a>
                         </li>
                     {% endif %}
                 </ul>
