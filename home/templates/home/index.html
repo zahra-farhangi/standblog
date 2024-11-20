@@ -46,13 +46,25 @@
 <header class="">
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><h2>Stand Blog<em>.</em></h2></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="navbar-brand" href="index.html"><h2>Stand Blog<em>.</em></h2></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarResponsive"
+                                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                        {% if user.profile.image %}
+                            <img class="img-fluid" src="{{ user.profile.image.url }}"
+                                 style="width: 36px; height: 36px; border-radius: 100%">
+                        {% else %}
+                            <img class="img-fluid" src="{% static 'images/icons/user.png' %}"
+                                 style="width: 36px; height: 36px; border-radius: 100%">
+                        {% endif %}
+                    {% endif %}
                     <li class="nav-item active">
                         <a class="nav-link" href="index.html">Home
                             <span class="sr-only">(current)</span>
@@ -76,8 +88,7 @@
                         </li>
                         <li class="nav-item">
                             {% if request.user.first_name %}
-                                <a class="nav-link"
-                                   href="">{{ request.user.first_name }} {{ request.user.last_name }}</a>
+                                <a class="nav-link" href="">{{ request.user.first_name }}</a>
                             {% else %}
                                 <a class="nav-link" href="">{{ request.user.username }}</a>
                             {% endif %}
@@ -108,7 +119,7 @@
                     <div class="item-content">
                         <div class="main-content">
                             <div class="meta-category">
-                                <span>Fashion</span>
+                                <span>{{ article.category.first.title }}</span>
                             </div>
                             <a href="post-details.html"><h4>{{ article.title }}</h4></a>
                             <ul class="post-info">
@@ -162,7 +173,7 @@
                                         <img src="{{ article.image.url }}" alt="{{ article.title }}">
                                     </div>
                                     <div class="down-content">
-                                        <span>Lifestyle</span>
+                                        <span>{{ article.category.all.0 }}</span>
                                         <a href="post-details.html"><h4>{{ article.title }}</h4></a>
                                         <ul class="post-info">
                                             <li><a href="#">{{ article.author.username }}</a></li>
