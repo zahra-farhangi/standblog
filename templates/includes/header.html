@@ -1,0 +1,62 @@
+{% load static %}
+<header class="">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="{% url 'home:main' %}"><h2>Stand Blog<em>.</em></h2></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarResponsive"
+                                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                        {% if user.profile.image %}
+                            <img class="img-fluid" src="{{ user.profile.image.url }}"
+                                 style="width: 36px; height: 36px; border-radius: 100%">
+                        {% else %}
+                            <img class="img-fluid" src="{% static 'images/icons/user.png' %}"
+                                 style="width: 36px; height: 36px; border-radius: 100%">
+                        {% endif %}
+                    {% endif %}
+                    <li class="nav-item {% if request.resolver_match.url_name == 'main' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'home:main' %}">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+{#                    <li class="nav-item {% request.resolver_match.url_name == 'about_us' %}active{% endif %}">#}
+{#                        <a class="nav-link" href="{% url 'about:main' %}">About Us</a>#}
+{#                    </li>#}
+                    <li class="nav-item {% if request.resolver_match.url_name == 'articles_list' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'article:articles_list' %}">All Articles</a>
+                    </li>
+{#                    <li class="nav-item{% request.resolver_match.url_name == 'contact_us' %}active{% endif %}">#}
+{#                        <a class="nav-link" href="{% url 'contact:main' %}">Contact Us</a>#}
+{#                    </li>#}
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account:logout' %}">log out</a>
+                        </li>
+                        <li class="nav-item active">
+                            {% if request.user.first_name %}
+                                <a class="nav-link" href="">{{ request.user.first_name }}</a>
+                            {% else %}
+                                <a class="nav-link" href="">{{ request.user.username }}</a>
+                            {% endif %}
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account:login' %}">login</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account:register' %}">register</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

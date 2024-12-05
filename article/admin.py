@@ -1,7 +1,12 @@
 from django.contrib import admin
-from . models import Article, Category, New
+from . models import *
 
 
-admin.site.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'created')
+    prepopulated_fields = {'slug': ('title',)}
+
+admin.site.register(Article, ArticleAdmin)
 admin.site.register(Category)
-admin.site.register(New)
+admin.site.register(Comment)
+

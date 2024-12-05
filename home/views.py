@@ -1,10 +1,15 @@
-from django.shortcuts import render
-from article.models import Article, New
+from django.shortcuts import render,redirect
+from article.models import Article
+
+
 
 def home(request):
-    # articles = Article.objects.all()
-    articles = Article.custom_manager.all()
+    # articles = Article.custom_manager.all()
+    articles = Article.objects.all()
     return render(request, 'home/index.html', {'articles': articles})
 
 
-#  lazy evaluation
+
+def sidebar(request):
+    context = {'name': 'Atusa Fa'}
+    return render(request, 'includes/sidebar.html', context)
