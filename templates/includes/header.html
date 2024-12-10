@@ -32,9 +32,9 @@
                     <li class="nav-item {% if request.resolver_match.url_name == 'articles_list' %}active{% endif %}">
                         <a class="nav-link" href="{% url 'article:articles_list' %}">All Articles</a>
                     </li>
-{#                    <li class="nav-item{% request.resolver_match.url_name == 'contact_us' %}active{% endif %}">#}
-{#                        <a class="nav-link" href="{% url 'contact:main' %}">Contact Us</a>#}
-{#                    </li>#}
+                    <li class="nav-item {% if request.resolver_match.url_name == 'contact_us' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'article:contact_us' %}">Contact Us</a>
+                    </li>
                     {% if request.user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'account:logout' %}">log out</a>

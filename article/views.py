@@ -1,7 +1,8 @@
 from django.http import Http404
-from django.shortcuts import render, get_object_or_404
-from article.models import Article, Category, Comment
+from django.shortcuts import render, get_object_or_404, redirect
+from article.models import Article, Category, Comment, Message
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from .forms import ContactUsForm, MessageForm
 
 def article_detail(request, slug, id=None):
     article = get_object_or_404(Article, slug=slug, id=id)
@@ -46,7 +47,20 @@ def search(request):
     return render(request, "article/articles_list.html", {'articles': objects_list})
 
 
-
+def contactus(request):
+    if request.method == 'POST':
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            # title = form.cleaned_data['title']
+            # text = form.cleaned_data['text']
+            # email = form.cleaned_data['email']
+            # Message.objects.create(title=title, text=text, email=email)
+            instance = form.save(commit=False)
+            instance.age += 5
+            instance.save()
+    else:
+        form = MessageForm()
+    return render(request, "article/contact_us.html", {'form': form})
 
 
 
