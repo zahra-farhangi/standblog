@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .forms import LoginForm, RegisterForm
+from .forms import LoginForm, RegisterForm, UserEditForm
+from django.contrib.auth.decorators import login_required
 
 
 #  login
@@ -67,6 +68,16 @@ def register_view(request):
 #     return redirect('home:main')
 # return render(request, 'account/register.html', {})
 
+@login_required(login_url='account:login')
+def user_edit(request):
+    user = request.user
+    form = UserEditForm(instance=user)
+    if request.method =='POST':
+        form = UserEditForm(instance=user, data=request.POST)
+        if form.is_valid():
+            form.save()
+
+    return render(request, 'account/edit_profile.html', {'form': form})
 
 def logout_view(request):
     logout(request)

@@ -74,8 +74,8 @@ class Comment(models.Model):
 
 class Message(models.Model):
     title = models.CharField(max_length=100, blank=True, null=True)
-    text = models.TextField(blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
+    text = models.TextField(blank=True, null=True)
     # age = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     # date = models.DateTimeField(default=timezone.now())

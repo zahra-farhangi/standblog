@@ -56,7 +56,7 @@ def contactus(request):
             # email = form.cleaned_data['email']
             # Message.objects.create(title=title, text=text, email=email)
             instance = form.save(commit=False)
-            instance.age += 5
+            # instance.age += 5
             instance.save()
     else:
         form = MessageForm()

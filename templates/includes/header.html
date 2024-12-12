@@ -26,9 +26,9 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-{#                    <li class="nav-item {% request.resolver_match.url_name == 'about_us' %}active{% endif %}">#}
-{#                        <a class="nav-link" href="{% url 'about:main' %}">About Us</a>#}
-{#                    </li>#}
+                    {#                    <li class="nav-item {% request.resolver_match.url_name == 'about_us' %}active{% endif %}">#}
+                    {#                        <a class="nav-link" href="{% url 'about:main' %}">About Us</a>#}
+                    {#                    </li>#}
                     <li class="nav-item {% if request.resolver_match.url_name == 'articles_list' %}active{% endif %}">
                         <a class="nav-link" href="{% url 'article:articles_list' %}">All Articles</a>
                     </li>
@@ -36,6 +36,10 @@
                         <a class="nav-link" href="{% url 'article:contact_us' %}">Contact Us</a>
                     </li>
                     {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.resolver_match.url_name == 'edit_profile' %}active{% endif %}"
+                               href="{% url 'account:edit_profile' %}">edit profile</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'account:logout' %}">log out</a>
                         </li>

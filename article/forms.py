@@ -46,10 +46,16 @@ class MessageForm(forms.ModelForm):
         widgets = {
             "title": forms.TextInput(attrs={
                 "class": "form-control",
-                "placeholder": 'Enter your Title',
-                "style": "max-width: 300px;"
+                "placeholder": 'Enter your title',
+                "style": "max-width: 600px;"
+            }),
+            "email": forms.TextInput(attrs={
+                "class": "form-control",
+                "placeholder": 'Enter your email',
+                "style": "max-width: 600px;"
             }),
             "text": forms.Textarea(attrs={
-            "class": "form-control",
-        })
+                "class": "form-control",
+                "placeholder": 'Enter your message',
+            })
         }

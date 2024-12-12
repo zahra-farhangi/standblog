@@ -62,3 +62,12 @@ class RegisterForm(forms.Form):
             if not re.search(r'[0-9]', password1):
                 self.add_error('password1','Password must contain at least one number')
         return cleaned_data
+
+
+class UserEditForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email')
+
+
+
