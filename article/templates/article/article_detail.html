@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load article_tags %}
 {% block title %}
     {{ article.title }}
 {% endblock %}
@@ -38,11 +38,11 @@
                                     </div>
                                     <div class="down-content">
                                         <span>Lifestyle</span>
-                                        <a href="article_details.html"><h4>{{ article.title }}</h4></a>
+                                        <a href="article_detail.html"><h4>{{ article.title }}</h4></a>
                                         <ul class="post-info">
                                             <li><a href="#">{{ article.author.get_full_name }}</a></li>
                                             <li><a href="#">{{ article.created }}</a></li>
-                                            <li><a href="#">10 Comments</a></li>
+                                            <li><a href="#">{% total_comments article.id %} Comments</a></li>
                                         </ul>
                                         <p>{{ article.body }}</p>
                                         <div class="post-options">
@@ -69,7 +69,7 @@
                             <div class="col-lg-12">
                                 <div class="sidebar-item comments">
                                     <div class="sidebar-heading">
-                                        <h2>4 comments</h2>
+                                        <h2>{% total_comments article.id  %} comments</h2>
                                     </div>
                                     <div class="content">
                                         <ul>

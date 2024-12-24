@@ -5,21 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2aa78d15-6f40-4ae2-a1f3-b925d9939622" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/account/templates/account/edit_profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/article/templates/article/article_list2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/article/templates/article/user_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/article/templatetags/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/article/templatetags/article_tags.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/article/templatetags/filters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templates/home/result.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templatetags/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templatetags/my_template_tags.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/article/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/article/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article/templates/article/article_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/article/templates/article/article_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article/templates/article/articles_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/article/templates/article/article_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/article/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/sidebar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -64,6 +77,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -150,6 +164,17 @@
       <workItem from="1733801395234" duration="7881000" />
       <workItem from="1733888452336" duration="12996000" />
       <workItem from="1733976848118" duration="8212000" />
+      <workItem from="1734014280122" duration="296000" />
+      <workItem from="1734015334097" duration="2406000" />
+      <workItem from="1734061954836" duration="140000" />
+      <workItem from="1734062105092" duration="4922000" />
+      <workItem from="1734147742388" duration="10199000" />
+      <workItem from="1734316746464" duration="5942000" />
+      <workItem from="1734490443048" duration="5385000" />
+      <workItem from="1734666144283" duration="15722000" />
+      <workItem from="1734753618503" duration="3741000" />
+      <workItem from="1734832385831" duration="3141000" />
+      <workItem from="1735013423976" duration="4229000" />
     </task>
     <servers />
   </component>

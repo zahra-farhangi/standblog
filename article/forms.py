@@ -59,3 +59,4 @@ class MessageForm(forms.ModelForm):
                 "placeholder": 'Enter your message',
             })
         }
+        title = forms.CharField(required=True)

@@ -33,6 +33,7 @@ class Article(models.Model):
     slug = models.SlugField(blank=True, unique=True, allow_unicode=True)
     custom_manager = ArticleManager()
     published = models.BooleanField(default=True)
+    reading_time = models.PositiveIntegerField(default=0)
 
 
     class Meta:
@@ -68,19 +69,19 @@ class Comment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
 
+
     def __str__(self):
         return self.body[:50]
 
 
 class Message(models.Model):
-    title = models.CharField(max_length=100, blank=True, null=True)
+    title = models.CharField(max_length=100, blank=False, null=False)
     email = models.EmailField(blank=True, null=True)
     text = models.TextField(blank=True, null=True)
     # age = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     # date = models.DateTimeField(default=timezone.now())
 
-
     def __str__(self):
-        return self.title
+        return self.title if self.title else "Untitled Message"
 
