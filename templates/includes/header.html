@@ -25,10 +25,10 @@
                     {% if request.user.is_authenticated %}
                         {% if user.profile.image %}
                             <img class="img-fluid m-2" src="{{ user.profile.image.url }}"
-                                 style="width: 36px; height: 36px; border-radius: 100%">
+                                 alt="" style="width: 36px; height: 36px; border-radius: 100%">
                         {% else %}
                             <img class="img-fluid m-1" src="{% static 'images/icons/user.png' %}"
-                                 style="width: 36px; height: 36px; border-radius: 100%">
+                                 alt="" style="width: 36px; height: 36px; border-radius: 100%">
                         {% endif %}
                     {% endif %}
                     <li class="nav-item {% if request.resolver_match.url_name == 'main' %}active{% endif %}">
@@ -42,10 +42,10 @@
                     <li class="nav-item {% if request.resolver_match.url_name == 'articles_list' %}active{% endif %}">
                         <a class="nav-link" href="{% url 'article:articles_list' %}">All Articles</a>
                     </li>
-                    <li class="nav-item {% if request.resolver_match.url_name == 'contact_us' %}active{% endif %}">
-                        <a class="nav-link" href="{% url 'article:contact_us' %}">Contact Us</a>
-                    </li>
                     {% if request.user.is_authenticated %}
+                        <li class="nav-item {% if request.resolver_match.url_name == 'contact_us' %}active{% endif %}">
+                            <a class="nav-link" href="{% url 'article:contact_us' %}">Contact Us</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link {% if request.resolver_match.url_name == 'edit_profile' %}active{% endif %}"
                                href="{% url 'account:edit_profile' %}">edit profile</a>

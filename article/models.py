@@ -3,7 +3,7 @@ from datetime import timedelta
 from django.urls import reverse
 from django.db import models
 from django.contrib.auth.models import User
-from django.utils import timezone
+from django.utils.timezone import now
 from django.utils.text import slugify
 
 class Category(models.Model):
@@ -30,10 +30,11 @@ class Article(models.Model):
     myfile = models.FileField(upload_to='test' ,null=True)
     status = models.BooleanField(default=True)
     objects = models.Manager()
-    slug = models.SlugField(blank=True, unique=True, allow_unicode=True)
+    slug = models.SlugField(blank=True, unique=True, allow_unicode=True, verbose_name='slug')
     custom_manager = ArticleManager()
     published = models.BooleanField(default=True)
     reading_time = models.PositiveIntegerField(default=0)
+    pub_date = models.DateTimeField(default=now)
 
 
     class Meta:
@@ -75,13 +76,12 @@ class Comment(models.Model):
 
 
 class Message(models.Model):
-    title = models.CharField(max_length=100, blank=False, null=False)
-    email = models.EmailField(blank=True, null=True)
-    text = models.TextField(blank=True, null=True)
+    title = models.CharField(max_length=100)
+    email = models.EmailField()
+    text = models.TextField()
     # age = models.IntegerField(default=0)
-    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     # date = models.DateTimeField(default=timezone.now())
 
-    def __str__(self):
-        return self.title if self.title else "Untitled Message"
+
 

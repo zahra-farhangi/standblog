@@ -5,8 +5,11 @@ from article.models import Article, Category, Comment, Message
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .forms import ContactUsForm, MessageForm
 from django.views.generic.base import View, TemplateView, RedirectView
-from django.views.generic import ListView, DetailView, FormView
+from django.views.generic import ListView, DetailView, FormView, CreateView, UpdateView, DeleteView, ArchiveIndexView, YearArchiveView
 from .models import Article
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .mixins import CustomLoginRequiredMixin
 
 
 # def article_detail(request, slug, id=None):
@@ -96,7 +99,7 @@ class UserList(ListView):
     template_name = 'article/user_list.html'
 
 
-class ArticleDetailView(DetailView):
+class ArticleDetailView(CustomLoginRequiredMixin, DetailView):
     model = Article
 
     def post(self, request, *args, **kwargs):
@@ -105,7 +108,7 @@ class ArticleDetailView(DetailView):
         return redirect(self.get_object().get_absolute_url())
 
 
-class ArticleListView(ListView):
+class ArticleListView(CustomLoginRequiredMixin ,ListView):
     # model = Article
     context_object_name = 'articles'
     paginate_by = 1
@@ -120,13 +123,70 @@ class ArticleListView(ListView):
 class ContactUsView(FormView):
     template_name = 'article/contact_us.html'
     form_class = MessageForm
-    success_url = '/'
+    success_url = reverse_lazy('home:main')
 
     def form_valid(self, form):
         form_data = form.cleaned_data
         Message.objects.create(**form_data)
 
         return super().form_valid(form)
+
+
+
+class MessageView(CustomLoginRequiredMixin, CreateView):
+    model = Message
+    fields = ('title', 'text')
+    success_url = reverse_lazy('article:message_list')
+
+
+
+    def form_valid(self, form):
+        instance = form.save(commit=False)
+        instance.email = self.request.user.email
+        instance.save()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        print(self.object.title)
+        return super(MessageView, self).get_success_url()
+
+
+class MessageListView(ListView):
+    model = Message
+
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['message_list'] = Message.objects.filter(email=self.request.user.email)
+        return context
+
+class MessageUpdateView(UpdateView):
+    model = Message
+    fields = ('title', 'text')
+    template_name_suffix = '_update_form'
+    success_url = reverse_lazy('article:message_list')
+
+
+
+class MessageDeleteView(DeleteView):
+    model = Message
+    success_url = reverse_lazy('article:message_list')
+
+
+
+class ArchiveIndexArticleView(ArchiveIndexView):
+    model = Article
+    date_field = 'updated'
+
+
+class YearArchiveArticleView(YearArchiveView):
+    model = Article
+    date_field = 'pub_date'
+    make_object_list = True
+    allow_future = True
+
+
+
 
 
 
