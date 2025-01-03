@@ -25,10 +25,10 @@
                     {% if request.user.is_authenticated %}
                         {% if user.profile.image %}
                             <img class="img-fluid m-2" src="{{ user.profile.image.url }}"
-                                 alt="" style="width: 36px; height: 36px; border-radius: 100%">
+                                 alt="user_image" style="width: 36px; height: 36px; border-radius: 100%">
                         {% else %}
                             <img class="img-fluid m-1" src="{% static 'images/icons/user.png' %}"
-                                 alt="" style="width: 36px; height: 36px; border-radius: 100%">
+                                 alt="user_image" style="width: 36px; height: 36px; border-radius: 100%">
                         {% endif %}
                     {% endif %}
                     <li class="nav-item {% if request.resolver_match.url_name == 'main' %}active{% endif %}">

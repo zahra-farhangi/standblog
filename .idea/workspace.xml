@@ -5,60 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2aa78d15-6f40-4ae2-a1f3-b925d9939622" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/article/mixins.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/article/templates/article/article_archive.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/article/templates/article/article_archive_year.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/article/templates/article/message_confirm_delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/article/templates/article/message_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/article/templates/article/message_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/article/templates/article/message_update_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/standblog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/standblog.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/override.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/fonts/Yekan.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/comments.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/testajax.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/base_site.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/article/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0002_article_author.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0003_alter_article_author.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0004_alter_article_author_alter_article_title.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0005_alter_article_title.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0006_alter_article_title.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0007_alter_article_title.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0008_alter_article_title.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0009_alter_article_title.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0010_alter_article_author_alter_article_title.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0011_article_pub_date.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0012_alter_article_pub_date_alter_article_title.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0013_alter_article_pub_date_alter_article_title.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0014_category_remove_article_pub_date_alter_article_title_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0015_article_is_published.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0016_alter_article_is_published.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0017_article_myfile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0018_alter_article_myfile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0019_alter_article_myfile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0020_new.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0021_remove_article_is_published_article_status.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0022_article_published.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0023_article_slug.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0024_alter_article_slug.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0025_alter_article_slug.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0026_alter_article_slug.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0027_alter_article_author_alter_article_category.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0028_alter_article_category.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0029_alter_article_category.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0030_comment_delete_new_alter_article_options_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0031_alter_comment_parent.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0032_message.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0033_message_created_at_alter_message_email_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0034_message_date.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0035_message_age_alter_message_date.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0036_remove_message_age_remove_message_date.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0037_comment_reading_time.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0038_remove_comment_reading_time_article_reading_time.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0039_alter_message_title.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/migrations/0040_alter_message_title.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/article/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/article/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article/templates/article/article_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/article/templates/article/article_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article/templates/article/article_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/article/templates/article/article_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article/templates/article/contact_us.html" beforeDir="false" afterPath="$PROJECT_DIR$/article/templates/article/contact_us.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/article/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/article/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/articles/blog-thumb-03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/test/blog-thumb-04.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/standblog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/standblog/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/footer_references.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/footer_references.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/head_references.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/head_references.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/header.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,6 +43,8 @@
       <list>
         <option value="HTML File" />
         <option value="Python Script" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -106,7 +77,8 @@
     &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Atusa/django_projects/p3/standblog/article/templates/article&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Atusa/django_projects/p3/standblog/static/fonts&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -118,11 +90,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Atusa\django_projects\p3\standblog\static\fonts" />
+      <recent name="E:\Atusa\django_projects\p3\standblog\templates\admin" />
       <recent name="E:\Atusa\django_projects\p3\standblog\article\templates\article" />
       <recent name="E:\Atusa\django_projects\p3\standblog\static\images\icons" />
       <recent name="E:\Atusa\django_projects\p3\standblog\static\vendor" />
-      <recent name="E:\Atusa\django_projects\p3\standblog\static\js" />
-      <recent name="E:\Atusa\django_projects\p3\standblog\static\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Atusa\django_projects\p3\standblog\article\templates\article" />
@@ -219,7 +191,15 @@
       <workItem from="1735098033653" duration="9925000" />
       <workItem from="1735177080476" duration="4195000" />
       <workItem from="1735181338334" duration="5400000" />
-      <workItem from="1735270890168" duration="840000" />
+      <workItem from="1735270890168" duration="9844000" />
+      <workItem from="1735352060440" duration="7580000" />
+      <workItem from="1735363276458" duration="2215000" />
+      <workItem from="1735530970167" duration="9099000" />
+      <workItem from="1735621577960" duration="6815000" />
+      <workItem from="1735702906643" duration="3097000" />
+      <workItem from="1735786195466" duration="4939000" />
+      <workItem from="1735898749482" duration="10895000" />
+      <workItem from="1735916201745" duration="2459000" />
     </task>
     <servers />
   </component>

@@ -1,15 +1,19 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.http import Http404
+from django.http import Http404, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
-from article.models import Article, Category, Comment, Message
+from django.views.decorators.http import require_POST
+from article.models import Article, Category, Comment, Message, Like
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .forms import ContactUsForm, MessageForm
 from django.views.generic.base import View, TemplateView, RedirectView
-from django.views.generic import ListView, DetailView, FormView, CreateView, UpdateView, DeleteView, ArchiveIndexView, YearArchiveView
-from .models import Article
+from django.views.generic import ListView, DetailView, FormView, CreateView, UpdateView, DeleteView, ArchiveIndexView, \
+    YearArchiveView
+from .models import Article, Like
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .mixins import CustomLoginRequiredMixin
+import json
 
 
 # def article_detail(request, slug, id=None):
@@ -102,13 +106,66 @@ class UserList(ListView):
 class ArticleDetailView(CustomLoginRequiredMixin, DetailView):
     model = Article
 
+    # def post(self, request, *args, **kwargs):
+    #     if self.request.user.is_authenticated:
+    #         Comment.objects.create(body=request.POST.get('body'), article=self.get_object(), user=request.user,
+    #                                parent_id=request.POST.get('parent_id'))
+    #         return redirect(self.get_object().get_absolute_url())
+    #     return redirect('account:login')
+
     def post(self, request, *args, **kwargs):
-        Comment.objects.create(body=request.POST.get('body'), article=self.get_object(), user=request.user,
-                               parent_id=request.POST.get('parent_id'))
-        return redirect(self.get_object().get_absolute_url())
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+            if request.user.is_authenticated:
+                try:
+                    data = json.loads(request.body)  # دریافت داده‌های JSON
+                    print("Received data:", data)  # چاپ داده‌ها برای بررسی
+                    body = data.get('body')
+                    parent_id = data.get('parent_id')
+
+                    if not body:
+                        return JsonResponse({'error': 'Comment body is required'}, status=400)
+
+                    article = self.get_object()
+                    comment = Comment.objects.create(
+                        body=body,
+                        article=article,
+                        user=request.user,
+                        parent_id=parent_id,
+                    )
+
+                    return JsonResponse({
+                        'message': 'Comment added successfully',
+                        'comment': {
+                            'id': comment.id,
+                            'body': comment.body,
+                            'user': request.user.get_full_name(),
+                            'created_at': comment.created_at.strftime('%Y-%m-%d %H:%M'),
+                        },
+                    })
+                except json.JSONDecodeError as e:
+                    print("JSON decoding error:", e)
+                    return JsonResponse({'error': 'Invalid JSON'}, status=400)
+                except Exception as e:
+                    print("Unexpected error:", e)  # چاپ خطای غیرمنتظره
+                    return JsonResponse({'error': str(e)}, status=500)
+
+            return JsonResponse({'error': 'User not authenticated'}, status=403)
+
+        return JsonResponse({'error': 'Invalid request'}, status=400)
 
 
-class ArticleListView(CustomLoginRequiredMixin ,ListView):
+    def get_context_data(self, **kwargs):
+        if self.request.user.is_authenticated:
+            context = super().get_context_data(**kwargs)
+            if self.request.user.likes.filter(article__slug=self.object.slug, user_id=self.request.user.id).exists():
+                context['is_like'] = True
+            else:
+                context['is_like'] = False
+            return context
+        return redirect('account:login')
+
+
+class ArticleListView(CustomLoginRequiredMixin, ListView):
     # model = Article
     context_object_name = 'articles'
     paginate_by = 1
@@ -132,13 +189,10 @@ class ContactUsView(FormView):
         return super().form_valid(form)
 
 
-
 class MessageView(CustomLoginRequiredMixin, CreateView):
     model = Message
     fields = ('title', 'text')
     success_url = reverse_lazy('article:message_list')
-
-
 
     def form_valid(self, form):
         instance = form.save(commit=False)
@@ -154,11 +208,11 @@ class MessageView(CustomLoginRequiredMixin, CreateView):
 class MessageListView(ListView):
     model = Message
 
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['message_list'] = Message.objects.filter(email=self.request.user.email)
         return context
+
 
 class MessageUpdateView(UpdateView):
     model = Message
@@ -167,11 +221,9 @@ class MessageUpdateView(UpdateView):
     success_url = reverse_lazy('article:message_list')
 
 
-
 class MessageDeleteView(DeleteView):
     model = Message
     success_url = reverse_lazy('article:message_list')
-
 
 
 class ArchiveIndexArticleView(ArchiveIndexView):
@@ -186,25 +238,27 @@ class YearArchiveArticleView(YearArchiveView):
     allow_future = True
 
 
+# def like(request, slug, id):
+#     if request.user.is_authenticated:
+#         try:
+#             like = Like.objects.get(article__slug=slug, user_id=request.user.id)
+#             like.delete()
+#             return JsonResponse({"response": "unliked"})
+#         except:
+#             Like.objects.create(article_id=id, user_id=request.user.id)
+#             return JsonResponse({"response": "liked"})
+#
+#     else:
+#         return redirect('account:login')
 
 
+@login_required(login_url='account:login')  # بررسی لاگین بودن
+@require_POST  # فقط اجازه متد POST
+def like(request, slug, id):
+    article = get_object_or_404(Article, slug=slug, id=id)
+    like, created = Like.objects.get_or_create(article=article, user=request.user)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    if not created:  # اگر لایک وجود داشته باشد، حذف شود
+        like.delete()
+        return JsonResponse({"response": "unliked"})
+    return JsonResponse({"response": "liked"})

@@ -17,5 +17,6 @@ urlpatterns = [
     path('messaage/delete/<int:pk>', views.MessageDeleteView.as_view(), name='message_delete'),
     path('archive/', views.ArchiveIndexArticleView.as_view(), name='archive'),
     path('archive/<int:year>/', views.YearArchiveArticleView.as_view(), name='year_archive'),
+    path('like/<slug>/<int:id>/', views.like, name='like'),
 
 ]
