@@ -153,7 +153,6 @@ class ArticleDetailView(CustomLoginRequiredMixin, DetailView):
 
         return JsonResponse({'error': 'Invalid request'}, status=400)
 
-
     def get_context_data(self, **kwargs):
         if self.request.user.is_authenticated:
             context = super().get_context_data(**kwargs)
@@ -196,6 +195,7 @@ class MessageView(CustomLoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         instance = form.save(commit=False)
+        instance.user = self.request.user
         instance.email = self.request.user.email
         instance.save()
         return super().form_valid(form)
@@ -210,7 +210,7 @@ class MessageListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['message_list'] = Message.objects.filter(email=self.request.user.email)
+        context['message_list'] = Message.objects.filter(user=self.request.user)
         return context
 
 

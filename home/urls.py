@@ -5,5 +5,6 @@ from . import views
 app_name = 'home'
 urlpatterns = [
     path('', views.home , name = 'main'),
-    path('sidebar/', views.sidebar , name='sidebar_partial')
+    path('sidebar/', views.sidebar , name='sidebar_partial'),
+    path('dashboard/', views.dashboard, name='dashboard')
 ]

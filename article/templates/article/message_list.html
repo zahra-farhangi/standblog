@@ -18,7 +18,7 @@
                                     <div class="content">
                                         {% for m in message_list %}
                                             <p>{{ m.title }} - {{ m.text|truncatechars:10 }} - <span><a
-                                                    href="{% url 'article:message_edit' m.id %}"
+                                                    href="{% url 'article:message_edit' m.pk %}"
                                                     class="btn btn-primary btn-sm">Edit</a></span>
                                             </p>
                                             <hr>

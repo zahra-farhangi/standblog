@@ -96,6 +96,7 @@ class Comment(models.Model):
 
 class Message(models.Model):
     title = models.CharField(max_length=100, verbose_name='عنوان')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tickets', verbose_name='نام کاربری', blank=True, null=True)
     email = models.EmailField(verbose_name='ایمیل')
     text = models.TextField(verbose_name='متن پیام')
     # age = models.IntegerField(default=0)

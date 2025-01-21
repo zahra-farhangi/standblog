@@ -49,6 +49,11 @@ class MessageForm(forms.ModelForm):
                 "placeholder": 'Enter your title',
                 "style": "max-width: 600px;"
             }),
+            "user": forms.TextInput(attrs={
+                "class": "form-control",
+                "placeholder": 'Enter your title',
+                "style": "max-width: 600px;"
+            }),
             "email": forms.TextInput(attrs={
                 "class": "form-control",
                 "placeholder": 'Enter your email',
