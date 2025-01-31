@@ -99,53 +99,56 @@
                                             {% for comment in article.comments.all %}
                                                 {% if comment.parent == None %}
                                                     <li>
-                                                        <div class="author-thumb">
-                                                            {% if comment.user.profile.image %}
-                                                                <img class="img-fluid m-2"
-                                                                     src="{{ comment.user.profile.image.url }}"
-                                                                     alt="user-image"
-                                                                     style="vertical-align: middle;width: 50px;height: 50px; border-radius: 50%;">
-                                                            {% else %}
-                                                                <img src="{% static 'images/icons/user.png' %}"
-                                                                     style="vertical-align: middle;width: 50px;height: 50px; border-radius: 50%;"
-                                                                     alt="user-image">
-                                                            {% endif %}
-                                                        </div>
-                                                        <div class="right-content">
-                                                            <h4>{{ comment.user.get_full_name }}<span>{{ comment.created_at }}</span>
-                                                            </h4>
-                                                            <p>{{ comment.body }}</p>
-                                                            <!-- اضافه کردن data-comment-id به دکمه reply -->
-                                                            <button onclick="set_value({{ comment.id }})"
-                                                                    class="btn btn-primary"
-                                                                    data-comment-id="{{ comment.id }}">
-                                                                Reply
-                                                            </button>
-                                                        </div>
-                                                    </li>
-                                                    {% for reply in comment.replies.all %}
-                                                        <li class="replied">
-                                                            <div class="author-thumb">
-                                                                {% if reply.user.profile.image %}
-                                                                    <img class="img-fluid m-2"
-                                                                         src="{{ reply.user.profile.image.url }}"
-                                                                         alt="user_image"
-                                                                         style="vertical-align: middle;width: 50px;height: 50px; border-radius: 50%;">
-                                                                {% else %}
-                                                                    <img src="{% static 'images/icons/user.png' %}"
-                                                                         style="vertical-align: middle;width: 50px;height: 50px; border-radius: 50%;"
-                                                                         alt="user_image">
-                                                                {% endif %}
-                                                            </div>
-                                                            <div class="right-content">
-                                                                <h4>{{ reply.user.get_full_name }}<span>{{ reply.created_at }}</span>
-                                                                </h4>
-                                                                <p>{{ reply.body }}</p>
-                                                            </div>
-                                                        </li>
-                                                    {% endfor %}
+                                                    <div class="author-thumb">
+                                                        {% if comment.user.profile.image %}
+                                                            <img class="img-fluid m-2"
+                                                                 src="{{ comment.user.profile.image.url }}"
+                                                                 alt="user-image"
+                                                                 style="vertical-align: middle;width: 50px;height: 50px; border-radius: 50%;">
+                                                        {% else %}
+                                                            <img src="{% static 'images/icons/user.png' %}"
+                                                                 style="vertical-align: middle;width: 50px;height: 50px; border-radius: 50%;"
+                                                                 alt="user-image">
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="right-content">
+                                                        <h4>{{ comment.user.get_full_name }}<span>{{ comment.created_at }}</span>
+                                                        </h4>
+                                                        <p>{{ comment.body }}</p>
+                                                        <!-- اضافه کردن data-comment-id به دکمه reply -->
+                                                        <button onclick="set_value({{ comment.id }})"
+                                                                class="btn btn-primary"
+                                                                data-comment-id="{{ comment.id }}">
+                                                            Reply
+                                                        </button>
+                                                    </div>
+
+                                                    <ul>
+                                                        {% for reply in comment.replies.all %}
+                                                            <li class="replied">
+                                                                <div class="author-thumb">
+                                                                    {% if reply.user.profile.image %}
+                                                                        <img class="img-fluid mt-3"
+                                                                             src="{{ reply.user.profile.image.url }}"
+                                                                             alt="user_image"
+                                                                             style="vertical-align: middle;width: 50px;height: 50px; border-radius: 50%;">
+                                                                    {% else %}
+                                                                        <img src="{% static 'images/icons/user.png' %}"
+                                                                             style="vertical-align: middle;width: 50px;height: 50px; border-radius: 50%;"
+                                                                             alt="user_image">
+                                                                    {% endif %}
+                                                                </div>
+                                                                <div class="right-content">
+                                                                    <h4>{{ reply.user.get_full_name }}<span>{{ reply.created_at }}</span>
+                                                                    </h4>
+                                                                    <p>{{ reply.body }}</p>
+                                                                </div>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
                                                 {% endif %}
                                             {% endfor %}
+                                            </li>
                                         </ul>
                                     </div>
 
@@ -162,8 +165,7 @@
                                             <form id="comment" action="" method="post">
                                                 {% csrf_token %}
                                                 <input type="hidden" id="parent_id" name="parent_id" value="">
-                                                <textarea name="body" rows="6" id="body" placeholder="Type your comment"
-                                                          required></textarea>
+                                                <textarea name="body" rows="6" id="body" placeholder="Type your comment"></textarea>
                                                 <button type="submit" id="form-submit" class="main-button">Submit
                                                 </button>
                                             </form>
