@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Advanced Dashboard</title>
-    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
-</head>
+{% block dashboard_head %}
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Responsive Advanced Dashboard</title>
+        <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+        <link rel="stylesheet" href="{% static 'css/edit_profile.css' %}">
+{#        <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">#}
+    </head>
+{% endblock %}
 <body>
+
 <div id="sidebar">
     {% if request.user.is_authenticated %}
         <div class="profile">
@@ -17,38 +22,45 @@
                 <img src="{% static 'images/icons/user.png' %}" alt="user_image">
             {% endif %}
             <div>
-                <h5>{{ request.user.get_full_name }}</h5>
+                <h6>{{ request.user.get_full_name }}</h6>
             </div>
         </div>
-        <a href="#">ویرایش اطلاعات</a>
+        <a href="{% url 'home:dashboard' %}">داشبورد</a>
+        <a href="{% url 'home:main' %}">خانه</a>
+        <a href="{% url 'account:edit_profile' %}">ویرایش اطلاعات</a>
         <a href="#">تغییر کلمه عبور</a>
         <a href="#">اعلانات</a>
         <a href="#">تیکت‌ها</a>
-        <a href="#">خروج</a>
+        <a href="{% url 'account:logout' %}">خروج</a>
         </div>
         <button id="toggle-btn">☰</button>
-        <header id="header">پنل کاربری</header>
-        <main id="main">
-            <section class="posts">
-                <div class="post">
-                    <h3>
-                        <img src="{% static 'images/icons/8725993_heart_sign_icon.png' %}" alt="like" style="height: 30px; width: 30px">
-                    </h3>
-                    <h5>تعداد لایک ها : {{ request.user.likes.count }}</h5>
-                </div>
-                <div class="post">
-                    <h3><img src="{% static 'images/icons/8725622_comment_dots_icon.png' %}" alt="like" style="height: 30px; width: 30px"></h3>
-                    <h5> تعداد کامنت ها : {{ request.user.comments.count }}</h5>
-                </div>
-                <div class="post">
-                    <h3><img src="{% static 'images/icons/8725613_comment_alt_message_icon.png' %}" alt="like" style="height: 30px; width: 30px"></h3>
-                    <h5> تعداد تیکت ها : {{ request.user.tickets.count }}</h5>
-                </div>
-            </section>
-        </main>
-        <footer>
-            <p>&copy; 2025 Responsive Advanced Dashboard. All rights reserved.</p>
-        </footer>
+        <header id="header"> {{ request.user.username }} پنل کاربری</header>
+        {% block content %}
+            <main id="main">
+                <section class="posts">
+                    <div class="post">
+                        <h3>
+                            <img src="{% static 'images/icons/8725993_heart_sign_icon.png' %}" alt="like"
+                                 style="height: 30px; width: 30px">
+                        </h3>
+                        <h5>تعداد لایک ها : {{ request.user.likes.count }}</h5>
+                    </div>
+                    <div class="post">
+                        <h3><img src="{% static 'images/icons/8725622_comment_dots_icon.png' %}" alt="like"
+                                 style="height: 30px; width: 30px"></h3>
+                        <h5> تعداد کامنت ها : {{ request.user.comments.count }}</h5>
+                    </div>
+                    <div class="post">
+                        <h3><img src="{% static 'images/icons/8725613_comment_alt_message_icon.png' %}" alt="like"
+                                 style="height: 30px; width: 30px"></h3>
+                        <h5> تعداد تیکت ها : {{ request.user.tickets.count }}</h5>
+                    </div>
+                </section>
+            </main>
+        {% endblock %}
+{#        <footer>#}
+{#            <p>&copy; 2025 Responsive Advanced Dashboard. All rights reserved.</p>#}
+{#        </footer>#}
     {% endif %}
 <script src="{% static 'js/dashboard.js' %}"></script>
 </body>

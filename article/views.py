@@ -1,3 +1,4 @@
+from django.conf.urls.static import static
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import Http404, JsonResponse
@@ -13,7 +14,11 @@ from .models import Article, Like
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .mixins import CustomLoginRequiredMixin
+from django.templatetags.static import static
 import json
+
+
+
 
 
 # def article_detail(request, slug, id=None):
@@ -106,13 +111,6 @@ class UserList(ListView):
 class ArticleDetailView(CustomLoginRequiredMixin, DetailView):
     model = Article
 
-    # def post(self, request, *args, **kwargs):
-    #     if self.request.user.is_authenticated:
-    #         Comment.objects.create(body=request.POST.get('body'), article=self.get_object(), user=request.user,
-    #                                parent_id=request.POST.get('parent_id'))
-    #         return redirect(self.get_object().get_absolute_url())
-    #     return redirect('account:login')
-
     def post(self, request, *args, **kwargs):
         if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
             if request.user.is_authenticated:
@@ -133,15 +131,20 @@ class ArticleDetailView(CustomLoginRequiredMixin, DetailView):
                         parent_id=parent_id,
                     )
 
-                    return JsonResponse({
+                    # ارسال پاسخ به صورت JSON
+                    response_data = {
                         'message': 'Comment added successfully',
                         'comment': {
                             'id': comment.id,
                             'body': comment.body,
                             'user': request.user.get_full_name(),
+                            'profile_image': comment.user.profile.image.url if comment.user.profile.image else static('images/icons/user.png'),
                             'created_at': comment.created_at.strftime('%Y-%m-%d %H:%M'),
                         },
-                    })
+                    }
+
+                    return JsonResponse(response_data)
+
                 except json.JSONDecodeError as e:
                     print("JSON decoding error:", e)
                     return JsonResponse({'error': 'Invalid JSON'}, status=400)

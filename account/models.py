@@ -1,11 +1,15 @@
+from datetime import timezone
+
 from django.db import models
 from django.contrib.auth.models import User
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name="نام کاربر")
-    father_name = models.CharField(max_length=25, verbose_name="نام پدر")
-    melicode = models.CharField(max_length=10, verbose_name="کد ملی")
-    image = models.ImageField(upload_to='profiles/image', blank=True, null=True, verbose_name="عکس")
+    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name="نام کاربر ")
+    Bio = models.TextField(verbose_name='بیوگرافی ', blank=True, null=True)
+    phone_number = models.CharField(max_length=11, blank=True, null=True, unique=True, verbose_name='شماره همراه ')
+    birthday = models.DateField(blank=True, null=True, verbose_name='تاریخ تولد ')
+    join_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    image = models.ImageField(upload_to='profiles/image', blank=True, null=True, verbose_name="عکس ")
 
     def __str__(self):
         return self.user.username

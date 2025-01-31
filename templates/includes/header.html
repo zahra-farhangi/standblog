@@ -14,7 +14,7 @@
 <header class="">
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home:main' %}"><h2>Stand Blog<em>.</em></h2></a>
+            <a class="navbar-brand" href="{% url 'home:main' %}"><h2>Blog<em>.</em></h2></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                     aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@
                         {% endif %}
                     {% endif %}
                     <li class="nav-item {% if request.resolver_match.url_name == 'main' %}active{% endif %}">
-                        <a class="nav-link" href="{% url 'home:main' %}">Home
+                        <a class="nav-link" href="{% url 'home:main' %}">خانه
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -40,33 +40,33 @@
                     {#                        <a class="nav-link" href="{% url 'about:main' %}">About Us</a>#}
                     {#                    </li>#}
                     <li class="nav-item {% if request.resolver_match.url_name == 'articles_list' %}active{% endif %}">
-                        <a class="nav-link" href="{% url 'article:articles_list' %}">All Articles</a>
+                        <a class="nav-link" href="{% url 'article:articles_list' %}">مقالات</a>
                     </li>
                     {% if request.user.is_authenticated %}
                         <li class="nav-item {% if request.resolver_match.url_name == 'contact_us' %}active{% endif %}">
-                            <a class="nav-link" href="{% url 'article:contact_us' %}">Contact Us</a>
+                            <a class="nav-link" href="{% url 'article:contact_us' %}">تماس با ما</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if request.resolver_match.url_name == 'edit_profile' %}active{% endif %}"
-                               href="{% url 'account:edit_profile' %}">edit profile</a>
+                            <a class="nav-link {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}"
+                               href="{% url 'home:dashboard' %}">پروفایل</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account:logout' %}">log out</a>
+                            <a class="nav-link" href="{% url 'account:logout' %}">خروج</a>
                         </li>
                         <li class="nav-item active">
                             {% if request.user.first_name %}
-                                <a class="nav-link" href="{% url 'home:main' %}">{{ request.user.first_name }}</a>
+                                <a class="nav-link" href="{% url 'home:main' %}">{{ request.user.first_name }} عزیز </a>
                             {% else %}
-                                <a class="nav-link" href="{% url 'home:main' %}">{{ request.user.username }}</a>
+                                <a class="nav-link" href="{% url 'home:main' %}">{{ request.user.username }} عزیز </a>
                             {% endif %}
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account:login' %}">login</a>
+                            <a class="nav-link" href="{% url 'account:login' %}">ورود</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account:register' %}">register</a>
+                            <a class="nav-link" href="{% url 'account:register' %}">ثبت نام</a>
                         </li>
                     {% endif %}
                 </ul>

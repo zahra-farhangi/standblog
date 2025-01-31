@@ -1,50 +1,302 @@
-{% extends 'base.html' %}
+{% extends 'home/dashboard.html' %}
 {% load static %}
-{% block title %}contact us{% endblock %}
+{% block title %}ویرایش پروفایل{% endblock %}
 {% block content %}
-    <section class="contact-us">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="down-contact">
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div class="sidebar-item contact-form">
-                                    <div class="sidebar-heading">
-                                        <h2>Edit Your Profile</h2>
-                                    </div>
-                                    <div class="content">
-                                        <form id="contact" action="" method="post">
-                                            {% csrf_token %}
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    {{ form }}
-                                                </div>
-                                                <div class="col-lg-12 mt-3">
-                                                    <fieldset>
-                                                        <button type="submit" id="form-submit" class="main-button">
-                                                            Send
-                                                        </button>
-                                                    </fieldset>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
+    <div id="main">
+        <section class="posts">
+            <div class="post">
+                {% if form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        {% for error in form.non_field_errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <div class="formbold-main-wrapper">
+                    <!-- Author: FormBold Team -->
+                    <!-- Learn More: https://formbold.com -->
+                    <div class="formbold-form-wrapper">
+                        <div class="m-3">
+                            {% if user.profile.image %}
+                                <!-- نمایش عکس پروفایل فعلی -->
+                                <img src="{{ user.profile.image.url }}" alt="عکس پروفایل"
+                                     id="profile-preview">
+                            {% else %}
+                                <img src="{% static 'images/icons/user.png' %}" alt="عکس پروفایل"
+                                     id="profile-preview">
+                            {% endif %}
+                        </div>
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="formbold-input-flex">
+                                <div>
+                                    <label for="firstname"
+                                           class="formbold-form-label"> {{ form.first_name.label }} </label>
+                                    {{ form.first_name }}
+                                </div>
+
+                                <div>
+                                    <label for="lastname"
+                                           class="formbold-form-label"> {{ form.last_name.label }} </label>
+                                    {{ form.last_name }}
                                 </div>
                             </div>
-                        </div>
+
+                            <div class="formbold-input-flex">
+                                <div>
+                                    <label for="email" class="formbold-form-label"> {{ form.email.label }} </label>
+                                    {{ form.email }}
+                                    {% if form.email.errors %}
+                                    <div class="text-danger" style="font-size: 0.875rem; margin-top: 0.5rem;">
+                                        {% for error in form.email.errors %}
+                                            <p>{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                </div>
+
+                            </div>
+
+                            <div class="formbold-mb-3 formbold-input-wrapp">
+                                <label for="phone" type="tel"
+                                       class="formbold-form-label"> {{ form.phone_number.label }} </label>
+                                {{ form.phone_number }}
+                                {% if form.phone_number.errors %}
+                                    <div class="text-danger" style="font-size: 0.875rem; margin-top: 0.5rem;">
+                                        {% for error in form.phone_number.errors %}
+                                            <p>{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="formbold-mb-3">
+                                <label for="age" class="formbold-form-label"> {{ form.bio.label }} </label>
+                                {{ form.bio }}
+                            </div>
+
+                            <div class="formbold-mb-3">
+                                <label for="dob" class="formbold-form-label"> {{ form.birthday.label }} </label>
+                                {{ form.birthday }}
+                                {% if form.birthday.errors %}
+                                    <div class="text-danger" style="font-size: 0.875rem; margin-top: 0.5rem;">
+                                        {% for error in form.birthday.errors %}
+                                            <p>{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="formbold-form-file-flex">
+                                <label for="address" class="formbold-form-label">{{ form.image.label }} </label>
+                                <input
+                                        type="file"
+                                        name="image"
+                                        id="image"
+                                        class="formbold-form-file"
+                                />
+                            </div>
+
+                            <button type="submit" class="formbold-btn">ثبت اطلاعات</button>
+                        </form>
                     </div>
                 </div>
-
-                <div class="col-lg-12">
-                    <div id="map">
-                        <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
-                                width="100%" height="450px" frameborder="0" style="border:0"
-                                allowfullscreen=""></iframe>
-                    </div>
-                </div>
-
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
+
+
+
+
+
+
+
+    {#                <form method="post" enctype="multipart/form-data" novalidate>#}
+    {#                    {% csrf_token %}#}
+    {#                    <div class="row">#}
+    {#                        <div class="col-lg-6">#}
+    {#                            <p style="font-family: Yekan,serif;">نام</p>#}
+    {#                            {{ form.first_name }}#}
+    {#                        </div>#}
+    {#                        <div class="col-lg-6 mt-3">#}
+    {#                            <p style="font-family: Yekan,serif;">نام خانوادگی</p>#}
+    {#                            {{ form.last_name }}#}
+    {#                        </div>#}
+    {#                        <div class="col-lg-6 mt-3">#}
+    {#                            <p style="font-family: Yekan,serif;">ایمیل</p>#}
+    {#                            {{ form.email }}#}
+    {#                            {% if form.email.errors %}#}
+    {#                                <div class="text-danger" style="font-size: 0.875rem; margin-top: 0.5rem;">#}
+    {#                                    {% for error in form.email.errors %}#}
+    {#                                        <p>{{ error }}</p>#}
+    {#                                    {% endfor %}#}
+    {#                                </div>#}
+    {#                            {% endif %}#}
+    {#                        </div>#}
+    {#                        <div class="col-lg-6 mt-3">#}
+    {#                            <p style="font-family: Yekan,serif;">بیوگرافی</p>#}
+    {#                            {{ form.bio }}#}
+    {#                        </div>#}
+    {#                        <div class="col-lg-6 mt-3">#}
+    {#                            <p style="font-family: Yekan,serif;">موبایل</p>#}
+    {#                            {{ form.phone_number }}#}
+    {#                            {% if form.phone_number.errors %}#}
+    {#                                <div class="text-danger" style="font-size: 0.875rem; margin-top: 0.5rem;">#}
+    {#                                    {% for error in form.phone_number.errors %}#}
+    {#                                        <p>{{ error }}</p>#}
+    {#                                    {% endfor %}#}
+    {#                                </div>#}
+    {#                            {% endif %}#}
+    {#                        </div>#}
+    {#                        <div class="col-lg-6 mt-3">#}
+    {#                            <p style="font-family: Yekan,serif;">تاریخ تولد</p>#}
+    {#                            {{ form.birthday }}#}
+    {#                        </div>#}
+    {#                        <div class="col-lg-6 mt-3">#}
+    {#                            <p style="font-family: Yekan,serif;">عکس پروفایل</p>#}
+    {#                            <input type="file" name="image" id="id_image" accept="image/*"></div>#}
+    {##}
+    {##}
+    {#                    </div>#}
+    {#                </form>#}
+    {#            </div>#}
+    {#        </section>#}
+    {#        <button type="submit" id="form-submit" class="btn btn-primary ">#}
+    {#            ثبت اطلاعات#}
+    {#        </button>#}
+    {#    </main>#}
+    {#    <section class="contact-us">#}
+    {#        <div class="container">#}
+    {#            <div class="row">#}
+    {#                <div class="col-lg-12">#}
+    {#                    <div class="down-contact">#}
+    {#                        <div class="row">#}
+    {#                            <div class="col-lg-8">#}
+    {#                                <div class="sidebar-item contact-form">#}
+    {#                                    <div class="sidebar-heading">#}
+    {#                                        <h2>Edit Your Profile</h2>#}
+    {#                                    </div>#}
+    {#                                    {% if messages %}#}
+    {#                                        <div class="messages">#}
+    {#                                            {% for message in messages %}#}
+    {#                                                <div class="alert alert-{{ message.tags }}">#}
+    {#                                                    {{ message }}#}
+    {#                                                </div>#}
+    {#                                            {% endfor %}#}
+    {#                                        </div>#}
+    {#                                    {% endif %}#}
+    {##}
+    {#                                    <div class="card">#}
+    {#                                        <div class="card-header bg-dark" style="color: white">#}
+    {#                                            <h4 style='font-family: Tahoma,serif'>ویرایش حساب کاربری</h4>#}
+    {#                                        </div>#}
+    {#                                        <form id="contact" action="" method="post" enctype="multipart/form-data">#}
+    {#                                            {% csrf_token %}#}
+    {#                                            <div class="card-body">#}
+    {#                                                <h5 class="card-title text-right" style='font-family: Tahoma,serif;'>:#}
+    {#                                                    نام </h5>#}
+    {#                                                <p class="card-text">{{ form.first_name }}</p>#}
+    {#                                                <h5 class="card-title text-right" style='font-family: Tahoma,serif;'>:#}
+    {#                                                    نام خانوادگی</h5>#}
+    {#                                                <p class="card-text">{{ form.last_name }}</p>#}
+    {#                                                <h5 class="card-title text-right" style='font-family: Tahoma,serif;'>:#}
+    {#                                                    ایمیل</h5>#}
+    {#                                                <p class="card-text">{{ form.email }}</p>#}
+    {#                                                <h5 class="card-title text-right"#}
+    {#                                                    style='font-family: Tahoma,serif;'>{{ form.bio.label }}</h5>#}
+    {#                                                <p class="card-text">{{ form.bio }}</p>#}
+    {#                                                <h5 class="card-title text-right"#}
+    {#                                                    style='font-family: Tahoma,serif;'>{{ form.phone_number.label }}</h5>#}
+    {#                                                <p class="card-text">{{ form.phone_number }}</p>#}
+    {#                                                <h5 class="card-title text-right"#}
+    {#                                                    style='font-family: Tahoma,serif;'>{{ form.birthday.label }}</h5>#}
+    {#                                                <p class="card-text">{{ form.birthday }}</p>#}
+    {#                                                <h5 class="card-title text-right"#}
+    {#                                                    style='font-family: Tahoma,serif;'>{{ form.image.label }}</h5>#}
+    {#                                                <div class="col-lg-12">#}
+    {#                                                    {{ form.image }}#}
+    {#                                                </div>#}
+    {#                                                    <fieldset>#}
+    {#                                                        <button type="submit" id="form-submit" class="main-button">#}
+    {#                                                            Send#}
+    {#                                                        </button>#}
+    {#                                                    </fieldset>#}
+    {#                                                </div>#}
+    {#                                        </form>#}
+    {#                                    </div>#}
+    {##}
+    {##}
+    {#                                    <div class="content">#}
+    {#                                        <div class="m-3">#}
+    {#                                            {% if user.profile.image %}#}
+    {#                                                <!-- نمایش عکس پروفایل فعلی -->#}
+    {#                                                <img src="{{ user.profile.image.url }}" alt="عکس پروفایل"#}
+    {#                                                     id="profile-preview"#}
+    {#                                                     style="width: 50px; height: 50px; border-radius: 50%;">#}
+    {#                                            {% else %}#}
+    {#                                                <img src="{% static 'images/icons/user.png' %}" alt="عکس پروفایل"#}
+    {#                                                     id="profile-preview"#}
+    {#                                                     style="width: 50px; height: 50px; border-radius: 50%;">#}
+    {#                                            {% endif %}#}
+    {#                                        </div>#}
+    {#                                        <form method="post" enctype="multipart/form-data">#}
+    {#                                            {% csrf_token %}#}
+    {#                                            <div class="row">#}
+    {#                                                <div class="col-lg-8">#}
+    {#                                                    <label style="font-family: Yekan,serif;">نام</label>#}
+    {#                                                    {{ form.first_name }}#}
+    {#                                                </div>#}
+    {#                                                <div class="col-lg-8">#}
+    {#                                                    <label style="font-family: Yekan,serif;">نام خانوادگی</label>#}
+    {#                                                    {{ form.last_name }}#}
+    {#                                                </div>#}
+    {#                                                <div class="col-lg-8">#}
+    {#                                                    <label style="font-family: Yekan,serif;">ایمیل</label>#}
+    {#                                                    {{ form.email }}#}
+    {#                                                </div>#}
+    {#                                                <div class="col-lg-8">#}
+    {#                                                    <label style="font-family: Yekan,serif;">بیوگرافی</label>#}
+    {#                                                    {{ form.bio }}#}
+    {#                                                </div>#}
+    {#                                                <div class="col-lg-8">#}
+    {#                                                    <label style="font-family: Yekan,serif;">موبایل</label>#}
+    {#                                                    {{ form.phone_number }}#}
+    {#                                                </div>#}
+    {#                                                <div class="col-lg-8">#}
+    {#                                                    <label style="font-family: Yekan,serif;">تاریخ تولد</label>#}
+    {#                                                    {{ form.birthday }}#}
+    {#                                                </div>#}
+    {#                                                <div class="col-lg-8">#}
+    {#                                                    <label style="font-family: Yekan,serif;">عکس پروفایل</label>#}
+    {#                                                    <input type="file" name="image" id="id_image" accept="image/*"></div>#}
+    {#                                                <div class="col-lg-8 mt-3">#}
+    {#                                                    <fieldset>#}
+    {#                                                        <button type="submit" id="form-submit" class="main-button">#}
+    {#                                                            Send#}
+    {#                                                        </button>#}
+    {#                                                    </fieldset>#}
+    {#                                                </div>#}
+    {#                                            </div>#}
+    {#                                        </form>#}
+    {#                                    </div>#}
+    {#                                </div>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {##}
+    {#                <div class="col-lg-12">#}
+    {#                    <div id="map">#}
+    {#                        <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"#}
+    {#                                width="100%" height="450px" frameborder="0" style="border:0"#}
+    {#                                allowfullscreen=""></iframe>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {##}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </section>#}
 {% endblock %}
+
+

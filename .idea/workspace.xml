@@ -5,147 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2aa78d15-6f40-4ae2-a1f3-b925d9939622" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/account/templatetags/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account/templatetags/custom_tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/templates/home/dashboard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/.sass-cache/21880c0ffe15753a53f8402e9f64e1077e071510/style.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/.sass-cache/2866be86c578bb583fbf023501bb9fd24cc3bf22/extend.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/.sass-cache/2866be86c578bb583fbf023501bb9fd24cc3bf22/fonts.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/.sass-cache/2866be86c578bb583fbf023501bb9fd24cc3bf22/global.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/.sass-cache/2866be86c578bb583fbf023501bb9fd24cc3bf22/minxi.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/.sass-cache/2866be86c578bb583fbf023501bb9fd24cc3bf22/variables.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/.sass-cache/3948936f84e1a30385e73a9be140b58b48c82e15/style.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/.sass-cache/643489b018602f15119d8f44aeb7fc79468873a9/main.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/.sass-cache/643489b018602f15119d8f44aeb7fc79468873a9/responsive.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/.sass-cache/7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39/extend.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/.sass-cache/7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39/fonts.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/.sass-cache/7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39/global.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/.sass-cache/7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39/minxi.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/.sass-cache/7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39/variables.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/.sass-cache/9dc767a56f3dc2f8a933300255cd2265f13191d4/main.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/.sass-cache/9dc767a56f3dc2f8a933300255cd2265f13191d4/responsive.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/dashboard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/style.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/material-icon/css/material-design-iconic-font.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/material-icon/css/material-design-iconic-font.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/material-icon/fonts/Material-Design-Iconic-Font.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/material-icon/fonts/Material-Design-Iconic-Font.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/material-icon/fonts/Material-Design-Iconic-Font.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/material-icon/fonts/Material-Design-Iconic-Font.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/material-icon/fonts/Material-Design-Iconic-Font.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-300.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-300.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-300.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-300.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-300.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-300italic.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-300italic.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-300italic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-300italic.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-300italic.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-500.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-500.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-500.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-500.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-500.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-500italic.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-500italic.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-500italic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-500italic.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-500italic.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-600.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-600.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-600.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-600.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-600.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-700.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-700.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-700.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-700.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-700.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-700italic.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-700italic.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-700italic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-700italic.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-700italic.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-800.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-800.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-800.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-800.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-800.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-800italic.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-800italic.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-800italic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-800italic.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-800italic.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-900.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-900.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-900.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-900.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-900.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-italic.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-italic.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-italic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-italic.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-italic.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/poppins-v5-latin-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-700.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-700.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-700.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-700.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-700.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-700italic.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-700italic.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-700italic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-700italic.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-700italic.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-italic.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-italic.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-italic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-italic.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-italic.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/poppins/roboto-condensed-v16-latin-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/8725613_comment_alt_message_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/8725622_comment_dots_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/8725993_heart_sign_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/signup-image.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/dashboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/scss/common/extend.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/scss/common/fonts.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/scss/common/global.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/scss/common/minxi.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/scss/common/variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/scss/layouts/main.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/scss/layouts/responsive.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/scss/style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/jquery/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/edit_profile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/templates/account/edit_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/edit_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account/templates/account/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/templates/article/message_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/article/templates/article/message_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article/templates/article/article_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/article/templates/article/article_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/article/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/standblog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/standblog/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/standblog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/standblog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/vendor/jquery/jquery-3.2.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/vendor/jquery/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendor/jquery/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/includes/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/home/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/profiles/image/1.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/profiles/image/images.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/fontawesome.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/fontawesome.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/comments.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/comments.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/head_references.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/head_references.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/header.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,9 +37,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="JavaScript File" />
         <option value="HTML File" />
         <option value="CSS File" />
-        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -330,7 +208,18 @@
       <workItem from="1737129192587" duration="7797000" />
       <workItem from="1737192837748" duration="613000" />
       <workItem from="1737215126726" duration="4448000" />
-      <workItem from="1737477519848" duration="9083000" />
+      <workItem from="1737477519848" duration="20065000" />
+      <workItem from="1737563662889" duration="2011000" />
+      <workItem from="1737575330714" duration="10428000" />
+      <workItem from="1737733553832" duration="21698000" />
+      <workItem from="1737822557217" duration="3198000" />
+      <workItem from="1737826761831" duration="10740000" />
+      <workItem from="1737879012729" duration="886000" />
+      <workItem from="1737905872522" duration="13065000" />
+      <workItem from="1737996477949" duration="185000" />
+      <workItem from="1737998853669" duration="4927000" />
+      <workItem from="1738154024378" duration="68000" />
+      <workItem from="1738304852949" duration="316000" />
     </task>
     <servers />
   </component>

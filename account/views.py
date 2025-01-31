@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .forms import LoginForm, RegisterForm, UserEditForm
+from .forms import LoginForm, RegisterForm, UserProfileEditForm
 from django.contrib.auth.decorators import login_required
+
+from .models import Profile
 
 
 #  login
@@ -40,11 +42,17 @@ def register_view(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
+            # اطلاعات کاربر از فرم ثبت‌نام
             username = form.cleaned_data.get('username')
             email = form.cleaned_data.get('email')
             password = form.cleaned_data.get('password1')
 
+            # ایجاد کاربر جدید
             user = User.objects.create_user(username=username, email=email, password=password)
+            # ایجاد پروفایل مرتبط با کاربر
+            Profile.objects.create(user=user)
+
+            # لاگین کاربر
             login(request, user)
             messages.success(request, 'Account was created successfully!')
             return redirect('home:main')
@@ -71,13 +79,34 @@ def register_view(request):
 @login_required(login_url='account:login')
 def user_edit(request):
     user = request.user
-    form = UserEditForm(instance=user)
-    if request.method =='POST':
-        form = UserEditForm(instance=user, data=request.POST)
+    profile = user.profile
+
+    if request.method == 'POST':
+        form = UserProfileEditForm(request.POST, request.FILES, instance=user, profile_instance=profile)
         if form.is_valid():
-            form.save()
+            # ذخیره داده‌های کاربر
+            user_form = form.save(commit=False)
+            user_form.save()
+
+            # ذخیره داده‌های پروفایل
+            profile.Bio = form.cleaned_data.get('bio')
+            profile.phone_number = form.cleaned_data.get('phone_number')
+            profile.birthday = form.cleaned_data.get('birthday')
+
+            # ذخیره عکس
+            if 'image' in request.FILES:
+                profile.image = request.FILES['image']
+            profile.save()
+
+            messages.success(request, 'اطلاعات شما با موفقیت ویرایش شد.')
+            return redirect('account:edit_profile')
+        else:
+            messages.error(request, 'مشکلی در ذخیره اطلاعات وجود دارد!')
+    else:
+        form = UserProfileEditForm(instance=user, profile_instance=profile)
 
     return render(request, 'account/edit_profile.html', {'form': form})
+
 
 def logout_view(request):
     logout(request)
