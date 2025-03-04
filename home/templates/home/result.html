@@ -1,6 +1,7 @@
+{% load jformat %}
 {% for article in objects %}
     <li><a href="{{ article.get_absolute_url }}">
         <h5>{{ article.title }}</h5>
-        <span>{{ article.created }}</span>
+        <span>{{ article.created|jformat:"%Y/%m/%d  %H:%M" }}</span>
     </a></li>
 {% endfor %}

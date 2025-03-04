@@ -31,31 +31,27 @@
                             {% csrf_token %}
                             <div class="formbold-input-flex">
                                 <div>
-                                    <label for="firstname"
-                                           class="formbold-form-label"> {{ form.first_name.label }} </label>
-                                    {{ form.first_name }}
-                                </div>
-
-                                <div>
                                     <label for="lastname"
                                            class="formbold-form-label"> {{ form.last_name.label }} </label>
                                     {{ form.last_name }}
                                 </div>
+                                <div>
+                                    <label for="firstname"
+                                           class="formbold-form-label"> {{ form.first_name.label }} </label>
+                                    {{ form.first_name }}
+                                </div>
                             </div>
 
-                            <div class="formbold-input-flex">
-                                <div>
-                                    <label for="email" class="formbold-form-label"> {{ form.email.label }} </label>
-                                    {{ form.email }}
-                                    {% if form.email.errors %}
+                            <div class="formbold-mb-3 formbold-input-wrapp">
+                                <label for="email" class="formbold-form-label"> {{ form.email.label }} </label>
+                                {{ form.email }}
+                                {% if form.email.errors %}
                                     <div class="text-danger" style="font-size: 0.875rem; margin-top: 0.5rem;">
                                         {% for error in form.email.errors %}
                                             <p>{{ error }}</p>
                                         {% endfor %}
                                     </div>
                                 {% endif %}
-                                </div>
-
                             </div>
 
                             <div class="formbold-mb-3 formbold-input-wrapp">

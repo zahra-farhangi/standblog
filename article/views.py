@@ -18,9 +18,6 @@ from django.templatetags.static import static
 import json
 
 
-
-
-
 # def article_detail(request, slug, id=None):
 #     article = get_object_or_404(Article, slug=slug, id=id)
 #     if request.method == 'POST':
@@ -111,17 +108,28 @@ class UserList(ListView):
 class ArticleDetailView(CustomLoginRequiredMixin, DetailView):
     model = Article
 
+    def dispatch(self, request, *args, **kwargs):
+        """
+        بررسی وضعیت انتشار مقاله قبل از اجرای ویو
+        """
+        article = self.get_object()
+        if not article.published:
+            raise Http404("این مقاله منتشر نشده است.")
+        return super().dispatch(request, *args, **kwargs)
+
     def post(self, request, *args, **kwargs):
+        """
+        مدیریت ارسال کامنت به صورت Ajax
+        """
         if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
             if request.user.is_authenticated:
                 try:
-                    data = json.loads(request.body)  # دریافت داده‌های JSON
-                    print("Received data:", data)  # چاپ داده‌ها برای بررسی
+                    data = json.loads(request.body)
                     body = data.get('body')
                     parent_id = data.get('parent_id')
 
                     if not body:
-                        return JsonResponse({'error': 'Comment body is required'}, status=400)
+                        return JsonResponse({'error': 'متن نظر الزامی است'}, status=400)
 
                     article = self.get_object()
                     comment = Comment.objects.create(
@@ -131,40 +139,99 @@ class ArticleDetailView(CustomLoginRequiredMixin, DetailView):
                         parent_id=parent_id,
                     )
 
-                    # ارسال پاسخ به صورت JSON
                     response_data = {
-                        'message': 'Comment added successfully',
+                        'message': 'نظر با موفقیت ثبت شد',
                         'comment': {
                             'id': comment.id,
                             'body': comment.body,
                             'user': request.user.get_full_name(),
-                            'profile_image': comment.user.profile.image.url if comment.user.profile.image else static('images/icons/user.png'),
+                            'profile_image': comment.user.profile.image.url if comment.user.profile.image else static(
+                                'images/icons/user.png'),
                             'created_at': comment.created_at.strftime('%Y-%m-%d %H:%M'),
                         },
                     }
 
                     return JsonResponse(response_data)
 
-                except json.JSONDecodeError as e:
-                    print("JSON decoding error:", e)
-                    return JsonResponse({'error': 'Invalid JSON'}, status=400)
+                except json.JSONDecodeError:
+                    return JsonResponse({'error': 'فرمت JSON نامعتبر است'}, status=400)
                 except Exception as e:
-                    print("Unexpected error:", e)  # چاپ خطای غیرمنتظره
                     return JsonResponse({'error': str(e)}, status=500)
 
-            return JsonResponse({'error': 'User not authenticated'}, status=403)
+            return JsonResponse({'error': 'لطفاً ابتدا وارد حساب کاربری خود شوید'}, status=403)
 
-        return JsonResponse({'error': 'Invalid request'}, status=400)
+        return JsonResponse({'error': 'درخواست نامعتبر است'}, status=400)
 
     def get_context_data(self, **kwargs):
+        """
+        افزودن اطلاعات اضافی به کانتکست
+        """
         if self.request.user.is_authenticated:
             context = super().get_context_data(**kwargs)
-            if self.request.user.likes.filter(article__slug=self.object.slug, user_id=self.request.user.id).exists():
-                context['is_like'] = True
-            else:
-                context['is_like'] = False
+            context['is_like'] = self.request.user.likes.filter(
+                article__slug=self.object.slug, user_id=self.request.user.id
+            ).exists()
             return context
         return redirect('account:login')
+
+
+# model = Article
+#
+# def post(self, request, *args, **kwargs):
+#     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+#         if request.user.is_authenticated:
+#             try:
+#                 data = json.loads(request.body)  # دریافت داده‌های JSON
+#                 print("Received data:", data)  # چاپ داده‌ها برای بررسی
+#                 body = data.get('body')
+#                 parent_id = data.get('parent_id')
+#
+#                 if not body:
+#                     return JsonResponse({'error': 'Comment body is required'}, status=400)
+#
+#                 article = self.get_object()
+#                 comment = Comment.objects.create(
+#                     body=body,
+#                     article=article,
+#                     user=request.user,
+#                     parent_id=parent_id,
+#                 )
+#
+#                 # ارسال پاسخ به صورت JSON
+#                 response_data = {
+#                     'message': 'Comment added successfully',
+#                     'comment': {
+#                         'id': comment.id,
+#                         'body': comment.body,
+#                         'user': request.user.get_full_name(),
+#                         'profile_image': comment.user.profile.image.url if comment.user.profile.image else static(
+#                             'images/icons/user.png'),
+#                         'created_at': comment.created_at.strftime('%Y-%m-%d %H:%M'),
+#                     },
+#                 }
+#
+#                 return JsonResponse(response_data)
+#
+#             except json.JSONDecodeError as e:
+#                 print("JSON decoding error:", e)
+#                 return JsonResponse({'error': 'Invalid JSON'}, status=400)
+#             except Exception as e:
+#                 print("Unexpected error:", e)  # چاپ خطای غیرمنتظره
+#                 return JsonResponse({'error': str(e)}, status=500)
+#
+#         return JsonResponse({'error': 'User not authenticated'}, status=403)
+#
+#     return JsonResponse({'error': 'Invalid request'}, status=400)
+#
+# def get_context_data(self, **kwargs):
+#     if self.request.user.is_authenticated:
+#         context = super().get_context_data(**kwargs)
+#         if self.request.user.likes.filter(article__slug=self.object.slug, user_id=self.request.user.id).exists():
+#             context['is_like'] = True
+#         else:
+#             context['is_like'] = False
+#         return context
+#     return redirect('account:login')
 
 
 class ArticleListView(CustomLoginRequiredMixin, ListView):
@@ -175,7 +242,7 @@ class ArticleListView(CustomLoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['name'] = 'Atusa'
+        context['name'] = 'technology'
         return context
 
 
@@ -193,19 +260,26 @@ class ContactUsView(FormView):
 
 class MessageView(CustomLoginRequiredMixin, CreateView):
     model = Message
-    fields = ('title', 'text')
+    form_class = MessageForm
     success_url = reverse_lazy('article:message_list')
 
     def form_valid(self, form):
         instance = form.save(commit=False)
-        instance.user = self.request.user
-        instance.email = self.request.user.email
+        instance.user = self.request.user  # مقداردهی خودکار کاربر
+        instance.email = self.request.user.email  # مقداردهی خودکار ایمیل
         instance.save()
+
+        # اگر درخواست از طریق AJAX بود، پاسخ JSON برگردان
+        if self.request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+            return JsonResponse({"message": "!تیکت شما با موفقیت ثبت شد"})
+
         return super().form_valid(form)
 
-    def get_success_url(self):
-        print(self.object.title)
-        return super(MessageView, self).get_success_url()
+    def form_invalid(self, form):
+        if self.request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+            return JsonResponse({"error": "لطفاً اطلاعات را صحیح وارد کنید."}, status=400)
+
+        return super().form_invalid(form)
 
 
 class MessageListView(ListView):
@@ -221,12 +295,12 @@ class MessageUpdateView(UpdateView):
     model = Message
     fields = ('title', 'text')
     template_name_suffix = '_update_form'
-    success_url = reverse_lazy('article:message_list')
+    success_url = reverse_lazy('account:message_list')
 
 
 class MessageDeleteView(DeleteView):
     model = Message
-    success_url = reverse_lazy('article:message_list')
+    success_url = reverse_lazy('account:message_list')
 
 
 class ArchiveIndexArticleView(ArchiveIndexView):

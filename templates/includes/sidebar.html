@@ -6,7 +6,9 @@
             <div class="col-lg-12">
                 <div class="sidebar-item search">
                     <form id="search_form" name="gs" method="GET" action="{% url 'article:search_articles' %}">
-                        <input type="text" name="q" class="searchText" placeholder="{% if request.GET.q %}{{ request.GET.q }}{% else %}type to search...{% endif %}"
+                        {% csrf_token %}
+                        <input type="text" name="q" class="searchText" style="text-align: right"
+                               placeholder="{% if request.GET.q %}{{ request.GET.q }}{% else %} ... جستجو{% endif %}"
                                autocomplete="on">
                     </form>
                 </div>
@@ -14,10 +16,10 @@
             <div class="col-lg-12">
                 <div class="sidebar-item recent-posts">
                     <div class="sidebar-heading">
-                        <h2>Recent Posts</h2>
+                        <h2 style="text-align: right">مقالات اخیر</h2>
                     </div>
                     <div class="content">
-                        <ul>
+                        <ul style="text-align: right">
                             {% show_result recent_articles %}
                         </ul>
                     </div>
@@ -26,12 +28,12 @@
             <div class="col-lg-12">
                 <div class="sidebar-item categories">
                     <div class="sidebar-heading">
-                        <h2>Categories</h2>
+                        <h2 style="text-align: right">دسته بندی ها</h2>
                     </div>
                     <div class="content">
-                        <ul>
+                        <ul style="text-align: right">
                             {% for cat in categories %}
-                                <li><a href="{% url 'article:category_detail' cat.id %}">- {{ cat.title }}</a></li>
+                                <li><a href="{% url 'article:category_detail' cat.id %}">{{ cat.title }} -</a></li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -40,10 +42,10 @@
             <div class="col-lg-12">
                 <div class="sidebar-item tags">
                     <div class="sidebar-heading">
-                        <h2>Tag Clouds</h2>
+                        <h2 style="text-align: right">تگ ها</h2>
                     </div>
                     <div class="content">
-                        <ul>
+                        <ul style="text-align: right">
                             <li><a href="#">{{ name }}</a></li>
                         </ul>
                     </div>

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load jformat %}
 {% load render_partial %}
 {% load social_share %}
 {% load filters %}
@@ -24,8 +25,8 @@
                                 <a href="{{ article.get_absolute_url }}"><h4>{{ article.title }}</h4></a>
                                 <ul class="post-info">
                                     <li><a href="#">{{ article.author.username }}</a></li>
-                                    <li><a href="#">{{ article.created }}</a></li>
-                                    <li><a href="#">{% total_comments article.id %} Comments</a></li>
+                                    <li><a href="#">{{ article.created|jformat:"%Y/%m/%d  %H:%M" }}</a></li>
+                                    <li><a href="#"> پیام ها :{% total_comments article.id %}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -67,14 +68,13 @@
                                         </div>
                                         <div class="down-content">
                                             <span>{{ article.category.all.0 }}</span>
-                                            {#                                        <a href="{% url 'article:article_detail' article.id %}"><h4>{{ article.title }}</h4></a>#}
                                             <a href="{{ article.get_absolute_url }}"><h4>{{ article.title }}</h4></a>
                                             <ul class="post-info">
                                                 <li><a href="#">{{ article.author.get_full_name }}</a></li>
-                                                <li><a href="#">{{ article.created }}</a></li>
-                                                <li><a href="#">{% total_comments article.id %} Comments</a></li>
+                                                <li><a href="#">{{ article.created|jformat:"%Y/%m/%d  %H:%M" }}</a></li>
+                                                <li><a href="#"> پیام ها : {% total_comments article.id %}</a></li>
                                             </ul>
-                                            <p>{{ article.body|truncatewords:30 }}<p>
+                                            <p>{{ article.body|truncatewords:30|safe }}<p>
                                             <div class="post-options">
                                                 <div class="row">
                                                     <div class="col-6">
@@ -89,6 +89,7 @@
                                                         <ul class="post-share">
                                                             <li><i class="fa fa-share-alt"></i></li>
                                                             <li>{% post_to_telegram article.get_absolute_url 'telegram' %}</li>
+
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -99,7 +100,7 @@
                             {% endfor %}
                             <div class="col-lg-12">
                                 <div class="main-button">
-                                    <a href="{% url 'article:articles_list' %}">View All Posts</a>
+                                    <a href="{% url 'article:articles_list' %}" style="font-size: large;">دیدن همه مقالات</a>
                                 </div>
                             </div>
                         </div>

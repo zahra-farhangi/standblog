@@ -1,0 +1,33 @@
+{% extends 'home/dashboard.html' %}
+{% load static %}
+{% block content %}
+    <main id="main">
+        <section class="posts">
+            <div class="post">
+                <h3 style="text-align: right;">
+                    لیست تیکت ها
+                </h3>
+                <table>
+                    <tr>
+                        <th>عنوان</th>
+                        <th>توضیحات</th>
+                        <th>ویرایش</th>
+                        <th>پاک کردن</th>
+                    </tr>
+                    {% for m in message_list %}
+                        <tr>
+                            <td>{{ m.title }}</td>
+                            <td>{{ m.text|truncatechars:30 }}</td>
+                            <td><span><a
+                                    href="{% url 'article:message_edit' m.pk %}"
+                                    class="btn btn-primary btn-sm">ویرایش</a></span></td>
+                            <td><span><a
+                                    href="{% url 'article:message_delete' m.pk %}"
+                                    class="btn btn-primary btn-sm">پاک کردن</a></span></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </section>
+    </main>
+{% endblock %}

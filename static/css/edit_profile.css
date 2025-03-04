@@ -57,7 +57,7 @@ body {
     border-radius: 5px;
     border: 1px solid #dde3ec;
     background: #ffffff;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 16px;
     color: #536387;
     outline: none;
@@ -79,8 +79,9 @@ select.formbold-form-input,
 }
 
 .formbold-form-label {
+    text-align: right;
     color: #07074D;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 14px;
     line-height: 24px;
     display: block;
@@ -120,7 +121,7 @@ select.formbold-form-input,
     -webkit-user-select: none;
     cursor: pointer;
     color: #637381;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 12px;
     line-height: 16px;
     margin-right: 10px;
@@ -128,12 +129,13 @@ select.formbold-form-input,
 
 .formbold-btn {
     text-align: center;
+    font-family: 'Yekan', sans-serif;
     width: 100%;
     font-size: 16px;
+    font-weight: bold;
     border-radius: 5px;
     padding: 14px 25px;
     border: none;
-    font-weight: 500;
     background-color: #6a64f1;
     color: white;
     cursor: pointer;

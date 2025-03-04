@@ -3,29 +3,29 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.forms import ValidationError
 from django.forms.widgets import ClearableFileInput
-from .models import Profile
 from datetime import date
+from django.contrib.auth.forms import PasswordChangeForm
 import re
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class': 'input100'}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input100'}))
+    username = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class': 'input100', 'placeholder': 'نام کاربری'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input100', 'placeholder': 'رمز عبور'}))
 
     def clean_password(self):
         user = authenticate(username=self.cleaned_data.get('username'), password=self.cleaned_data.get('password'))
         if user is not None:
             return self.cleaned_data.get('password')
-        raise ValidationError('Incorrect username or password.', code='invalid_info')
+        raise ValidationError('نام کاربری یا رمز عبور اشتباه است', code='invalid_info')
 
 
 class RegisterForm(forms.Form):
-    username = forms.CharField(max_length=50, required=True, widget=forms.TextInput(attrs={'class': 'input100'}),
+    username = forms.CharField(max_length=50, required=True, widget=forms.TextInput(attrs={'class': 'input100', 'placeholder': 'نام کاربری'}),
                                label='Username')
-    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'class': 'input100'}), label='Email')
-    password1 = forms.CharField(required=True, widget=forms.PasswordInput(attrs={'class': 'input100'}),
+    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'class': 'input100', 'placeholder': 'ایمیل'}), label='Email')
+    password1 = forms.CharField(required=True, widget=forms.PasswordInput(attrs={'class': 'input100', 'placeholder': 'رمز عبور'}),
                                 label='Password')
-    password2 = forms.CharField(required=True, widget=forms.PasswordInput(attrs={'class': 'input100'}),
+    password2 = forms.CharField(required=True, widget=forms.PasswordInput(attrs={'class': 'input100', 'placeholder': 'تکرار رمز عبور',}),
                                 label='Confirm password')
 
     def clean_username(self):
@@ -33,18 +33,18 @@ class RegisterForm(forms.Form):
 
         # Check Username len
         if len(username) < 5:
-            raise ValidationError('Username must be at least 5 characters.', code='Invalid_Username')
+            raise ValidationError('نام کاربری باید حداقل 5 کاراکتر باشد', code='Invalid_Username')
 
         # Check Username Unique
         if User.objects.filter(username=username).exists():
-            raise ValidationError('Username already exists.', code='Username_Exists')
+            raise ValidationError('نام کاربری از قبل وجود دارد', code='Username_Exists')
 
         return username
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
         if User.objects.filter(email=email).exists():
-            raise ValidationError('Email already exists.', code='Email_Exists')
+            raise ValidationError('ایمیل از قبل وجود دارد', code='Email_Exists')
         return email
 
     def clean(self):
@@ -54,18 +54,18 @@ class RegisterForm(forms.Form):
 
         # Check Match Password
         if password1 and password2 and password1 != password2:
-            self.add_error('password2', r"Passwords don't match.")
+            self.add_error('password2', r"!پسورد یکسان نیست")
 
         # Check Characters Password
         if password1:
             if len(password1) < 8:
-                self.add_error('password1', 'Password must be at least 8 characters.')
+                self.add_error('password1', 'پسورد باید حداقل 8 کاراکتر باشد')
             if not re.search(r'[A-Z]', password1):
-                self.add_error('password1', 'Password must contain at least one uppercase')
+                self.add_error('password1', 'پسورد باید حداقل شامل یک حرف بزرگ انگلیسی باشد')
             if not re.search(r'[a-z]', password1):
-                self.add_error('password1', 'Password must contain at least one lowercase')
+                self.add_error('password1', 'پسورد باید حداقل شامل یک حرف کوچک انگلیسی باشد')
             if not re.search(r'[0-9]', password1):
-                self.add_error('password1', 'Password must contain at least one number')
+                self.add_error('password1', 'پسورد باید حداقل شامل یک حرف عدد باشد')
         return cleaned_data
 
 class UserProfileEditForm(forms.ModelForm):
@@ -142,3 +142,24 @@ class UserProfileEditForm(forms.ModelForm):
             if birthday >= date.today():
                 raise ValidationError("تاریخ تولد باید قبل تر از تاریخ امروز باشد.")
         return birthday
+
+
+class CustomPasswordChangeForm(PasswordChangeForm):
+    old_password = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            'class': 'formbold-form-input',
+            'placeholder': 'رمز عبور فعلی',
+        })
+    )
+    new_password1 = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            'class': 'formbold-form-input',
+            'placeholder': 'رمز عبور جدید',
+        })
+    )
+    new_password2 = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            'class': 'formbold-form-input',
+            'placeholder': 'تأیید رمز عبور جدید',
+        })
+    )

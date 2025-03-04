@@ -19,7 +19,6 @@
                     aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     {% if request.user.is_authenticated %}
@@ -36,9 +35,6 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    {#                    <li class="nav-item {% if request.resolver_match.url_name == 'about_us' %}active{% endif %}">#}
-                    {#                        <a class="nav-link" href="{% url 'about:main' %}">About Us</a>#}
-                    {#                    </li>#}
                     <li class="nav-item {% if request.resolver_match.url_name == 'articles_list' %}active{% endif %}">
                         <a class="nav-link" href="{% url 'article:articles_list' %}">مقالات</a>
                     </li>

@@ -1,5 +1,5 @@
 from django import template
-import datetime
+import jdatetime
 
 # register = template.Library()
 
@@ -14,7 +14,7 @@ register = template.Library()
 
 @register.simple_tag
 def current_time(format_string):
-    return datetime.datetime.now().strftime(format_string)
+    return jdatetime.datetime.now().strftime(format_string)
 
 
 

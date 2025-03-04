@@ -2519,7 +2519,7 @@ input[type="button"].btn-block {
 }
 
 .collapse.show {
-  display: block;
+    display: block !important;
 }
 
 tr.collapse.show {

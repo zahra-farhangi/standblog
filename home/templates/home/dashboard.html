@@ -5,10 +5,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Responsive Advanced Dashboard</title>
+        <title>پنل کاربری</title>
         <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
         <link rel="stylesheet" href="{% static 'css/edit_profile.css' %}">
-{#        <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">#}
+        {#        <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">#}
     </head>
 {% endblock %}
 <body>
@@ -22,15 +22,19 @@
                 <img src="{% static 'images/icons/user.png' %}" alt="user_image">
             {% endif %}
             <div>
-                <h6>{{ request.user.get_full_name }}</h6>
+                {% if user.get_full_name %}
+                    <h4>{{ request.user.get_full_name }}</h4>
+                {% else %}
+                    <h4>{{ request.user.username }}</h4>
+                {% endif %}
+
             </div>
         </div>
         <a href="{% url 'home:dashboard' %}">داشبورد</a>
         <a href="{% url 'home:main' %}">خانه</a>
         <a href="{% url 'account:edit_profile' %}">ویرایش اطلاعات</a>
-        <a href="#">تغییر کلمه عبور</a>
-        <a href="#">اعلانات</a>
-        <a href="#">تیکت‌ها</a>
+        <a href="{% url 'account:password_change' %}">تغییر کلمه عبور</a>
+        <a href="{% url 'account:message_list' %}">تیکت‌ها</a>
         <a href="{% url 'account:logout' %}">خروج</a>
         </div>
         <button id="toggle-btn">☰</button>
@@ -56,11 +60,28 @@
                         <h5> تعداد تیکت ها : {{ request.user.tickets.count }}</h5>
                     </div>
                 </section>
+                <section class="posts">
+                    <div class="post">
+                        <h5>ارسال تیکت جدید</h5>
+                        <form id="ticketForm" method="post" action="{% url 'article:contact_us' %}">
+                            {% csrf_token %}
+                            <div class="formbold">
+                                <label for="id_title" class="formbold-label">عنوان</label>
+                                <input type="text" name="title" id="id_title">
+                            </div>
+                            <div class="formbold">
+                                <label for="id_text" class="formbold-label">متن پیام</label>
+                                <textarea name="text" id="id_text" class="form-control"></textarea>
+                            </div>
+                            <div class="content">
+                                <button type="submit" class="formbold-button" id="submitTicket">ارسال تیکت</button>
+                            </div>
+                        </form>
+                        <div id="responseMessage"></div> <!-- نمایش پیام موفقیت یا خطا -->
+                    </div>
+                </section>
             </main>
         {% endblock %}
-{#        <footer>#}
-{#            <p>&copy; 2025 Responsive Advanced Dashboard. All rights reserved.</p>#}
-{#        </footer>#}
     {% endif %}
 <script src="{% static 'js/dashboard.js' %}"></script>
 </body>

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load jformat %}
 {% load article_tags %}
 {% block title %}
     Articles list
@@ -14,8 +15,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="text-content">
-                            <h4>Recent Posts</h4>
-                            <h2>Our Recent Blog Entries</h2>
+                            <h4>مقالات اخیر</h4>
+                            <h2>لیست آخرین مقالات</h2>
                         </div>
                     </div>
                 </div>
@@ -32,14 +33,7 @@
                     <div class="main-content">
                         <div class="row">
                             <div class="col-lg-8">
-                                <span>Stand Blog HTML5 Template</span>
-                                <h4>Posts : {% total_articles %} </h4>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="main-button">
-                                    <a href="https://templatemo.com/tm-551-stand-blog" target="_parent">Download
-                                        Now!</a>
-                                </div>
+                                <span>تعداد مقالات : {% total_articles %}</span>
                             </div>
                         </div>
                     </div>
@@ -66,17 +60,18 @@
                                             <a href="{{ article.get_absolute_url }}"><h4>{{ article.title }}</h4></a>
                                             <ul class="post-info">
                                                 <li><a href="#">{{ article.author.get_full_name }}</a></li>
-                                                <li><a href="#">{{ article.created }}</a></li>
-                                                <li><a href="#">{% total_comments article.id %} Comments</a></li>
+                                                <li><a href="#">{{ article.created|jformat:"%Y/%m/%d  %H:%M" }}</a></li>
+                                                <li><a href="#">پیام ها : {% total_comments article.id %}</a></li>
                                             </ul>
-                                            <p>{{ article.body|truncatechars:30 }}</p>
+                                            <span>{{ article.body|truncatewords:20|safe }}</span>
                                             <div class="post-options">
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <ul class="post-tags">
                                                             <li><i class="fa fa-tags"></i></li>
-                                                            <li><a href="#">Best Templates</a>,</li>
-                                                            <li><a href="#">TemplateMo</a></li>
+                                                            <li>
+                                                                <a href="{{ article.get_absolute_url }}">- {{ article.category.all.0 }}</a>
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -89,19 +84,31 @@
                                 {% if page_obj.has_other_pages %}
                                     <ul class="page-numbers">
                                         {% if page_obj.has_previous %}
-                                            <li><a href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><i class="fa fa-angle-double-left"></i></a></li>
+                                            <li><a href="?page=
+
+                                                    {{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><i
+                                                    class="fa fa-angle-double-left"></i></a></li>
                                         {% endif %}
 
                                         {% for i in page_obj.paginator.page_range %}
                                             {% if page_obj.number == i %}
-                                                <li class="active"><a href="?page={{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ i }}</a></li>
+                                                <li class="active"><a href="?page=
+
+                                                        {{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ i }}</a>
+                                                </li>
                                             {% else %}
-                                                <li><a href="?page={{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ i }}</a></li>
+                                                <li><a href="?page=
+
+                                                        {{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ i }}</a>
+                                                </li>
                                             {% endif %}
                                         {% endfor %}
 
                                         {% if page_obj.has_next %}
-                                            <li><a href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><i class="fa fa-angle-double-right"></i></a></li>
+                                            <li><a href="?page=
+
+                                                    {{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><i
+                                                    class="fa fa-angle-double-right"></i></a></li>
                                         {% endif %}
                                     </ul>
                                 {% endif %}

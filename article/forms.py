@@ -40,28 +40,17 @@ class ContactUsForm(forms.Form):
 class MessageForm(forms.ModelForm):
     class Meta:
         model = Message
-        fields = '__all__'
-        # fields = ('title', 'text', 'email')
-        exclude = ('date',)
+        fields = ('title', 'text')
         widgets = {
-            "title": forms.TextInput(attrs={
-                "class": "form-control",
-                "placeholder": 'Enter your title',
-                "style": "max-width: 600px;"
+            'title' : forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'عنوان',
+                'style': 'max-width: 600px;'
             }),
-            "user": forms.TextInput(attrs={
-                "class": "form-control",
-                "placeholder": 'Enter your title',
-                "style": "max-width: 600px;"
-            }),
-            "email": forms.TextInput(attrs={
-                "class": "form-control",
-                "placeholder": 'Enter your email',
-                "style": "max-width: 600px;"
-            }),
-            "text": forms.Textarea(attrs={
-                "class": "form-control",
-                "placeholder": 'Enter your message',
+            'text' : forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'متن پیام',
             })
         }
         title = forms.CharField(required=True)
+

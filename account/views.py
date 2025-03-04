@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.views.generic import ListView
+from article.models import Message
 from .forms import LoginForm, RegisterForm, UserProfileEditForm
 from django.contrib.auth.decorators import login_required
-
 from .models import Profile
 
 
@@ -54,7 +55,7 @@ def register_view(request):
 
             # لاگین کاربر
             login(request, user)
-            messages.success(request, 'Account was created successfully!')
+            messages.success(request, 'اکانت شما با موفقیت ایجاد شد')
             return redirect('home:main')
 
         return render(request, 'account/register.html', {'form': form})
@@ -111,3 +112,13 @@ def user_edit(request):
 def logout_view(request):
     logout(request)
     return redirect("home:main")
+
+
+class MessageListView(ListView):
+    model = Message
+    template_name = 'account/messagelist.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['message_list'] = Message.objects.filter(user=self.request.user)
+        return context
